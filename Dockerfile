@@ -16,9 +16,9 @@ RUN apt-key add /tmp/antismash.asc
 RUN apt-get update && apt-get install -y ncbi-blast+ glimmerhmm tigr-glimmer diamond hmmer2 hmmer hmmer2-compat muscle prodigal fasttree default-jre-headless python-straight.plugin python-pysvg python-helperlibs python-biopython python-pyquery python-backports.lzma python-matplotlib
 
 # Grab antiSMASH
-#ADD ${ANTISMASH_URL}/antismash-${ANTISMASH_VERSION}.tar.gz /tmp/
+ADD ${ANTISMASH_URL}/antismash-${ANTISMASH_VERSION}.tar.gz /tmp/
 # copy antiSMASH tarball form local to image
-copy antismash-${ANTISMASH_VERSION}.tar.gz /tmp/antismash-${ANTISMASH_VERSION}.tar.gz
+#copy antismash-${ANTISMASH_VERSION}.tar.gz /tmp/antismash-${ANTISMASH_VERSION}.tar.gz
 RUN tar zxvf /tmp/antismash-${ANTISMASH_VERSION}.tar.gz && rm -f /tmp/antismash-${ANTISMASH_VERSION}.tar.gz
 
 ADD instance.cfg /antismash-${ANTISMASH_VERSION}/antismash/config/instance.cfg
